@@ -3,28 +3,22 @@ import logging
 import sys
 from fastmcp import FastMCP
 from sqlmodel.ext.asyncio.session import AsyncSession
-
-# Import our services and the custom exception
 from app.services import poke_api_client, battle_engine, database_client
 from app.services.poke_api_client import PokemonNotFoundError
 from app.models.pydantic_models import PokemonData, BattleRequest, BattleResponse
 
-# Set up logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Create MCP server - this MUST be at module level for fastmcp CLI to find it
 mcp = FastMCP("Pokémon MCP Server")
 
 @mcp.resource("pokemon://{name}")
 async def get_pokemon(name: str) -> dict:
-    """Get pokemon data"""
+  
     try:
         await database_client.init_db()
         async with AsyncSession(database_client.engine) as session:
             result = await poke_api_client.get_pokemon_details(name, session)
-            
-            # Return data in the format your client expects
             base_stats = []
             if hasattr(result, 'stats') and result.stats:
                 if isinstance(result.stats, dict):
@@ -35,7 +29,6 @@ async def get_pokemon(name: str) -> dict:
                 elif isinstance(result.stats, list):
                     base_stats = result.stats
             
-            # Check for base_stats attribute as well
             if not base_stats and hasattr(result, 'base_stats'):
                 base_stats = result.base_stats
             
