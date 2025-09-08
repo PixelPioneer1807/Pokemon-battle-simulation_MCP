@@ -27,22 +27,6 @@ Node.js + npm installed (for MCP Inspector)
 
 Internet connection (to fetch Pokémon data)
 
-First run:
-
-python test_server.py
-
-See if the server is running, you'll see output like:
-
-Testing server startup...
-Current directory: C:\Users\HP\Documents\pokemon_fastmcp_server
-Python executable: C:\Users\HP\Documents\pokemon_fastmcp_server\.venv\Scripts\python.exe
-✅ server.py found
-Starting server process...
-✅ Server started successfully and is still running!
-
-🎉 Server test passed!
-
-then move on next steps:
 
 ⚙️ Setup & Installation
 1️⃣ Clone the project / Donwload & extract from zip file
@@ -60,6 +44,23 @@ source .venv/bin/activate
 3️⃣ Install dependencies
 pip install -r requirements.txt
 
+First run:
+
+python test_server.py
+
+See if the server is running, you'll see output like:
+
+Testing server startup...
+Current directory: C:\Users\HP\Documents\pokemon_fastmcp_server
+Python executable: C:\Users\HP\Documents\pokemon_fastmcp_server\.venv\Scripts\python.exe
+✅ server.py found
+Starting server process...
+✅ Server started successfully and is still running!
+
+🎉 Server test passed!
+
+if you get an error fix it then move forward
+
 4️⃣ Install MCP Inspector (for testing)
 npm install -g @modelcontextprotocol/inspector
 
@@ -73,7 +74,7 @@ This will:
 Start your FastMCP server (server.py)
 
 Open MCP Inspector in your browser at given link, you can either enter your session token or open inspector with token prefilled
-if you are not going with the prefilled option, when open the link shown interminal add your session token in cofiguration -> PROXY SESSION TOKEN to start your mcp server
+if you are not going with the prefilled option, when open the link shown in terminal add your session token in cofiguration -> PROXY SESSION TOKEN to start your mcp server
 
 🎮 How to Use
 
