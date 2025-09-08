@@ -58,7 +58,7 @@ def test_server_startup():
 if __name__ == "__main__":
     success = test_server_startup()
     if success:
-        print("\n🎉 Server test passed! The Streamlit app should work.")
+        print("\n🎉 Server test passed!")
     else:
         print("\n❌ Server test failed. Fix the server issues first.")
         
